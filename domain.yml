@@ -1,0 +1,223 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- thankyou
+- deny
+- read_write_learner
+- greet
+- ask_learning_type
+- kinesthetic
+- visual
+- aural
+- ask_course
+- subscribe_to_updates
+- email_examples
+- affirm
+- name_examples
+- request_names
+- goodbye
+- mood_great
+- mood_unhappy
+- bot_challenge
+- out_of_scope
+- need_help
+- chitchat_who_made_you
+- chitchat_angry_user
+- chitchat_happy_birthday
+- chitchat_how_are_you
+slots:
+  first_name:
+    type: text
+    influence_conversation: true
+  email:
+    type: text
+    influence_conversation: true
+responses:
+  utter_greet:
+  - text: Hello! Welcome to Otermans Institute’s Course Selector Tool. I am a Digital Assistant and my goal is to help you find the course that best suits you.
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Ok, goodbye for now. Until next time 😃
+  - text: Until next time, goodbye! 👋
+  utter_iamabot:
+  - text: I am a bot haha. I am OI's search tool bot here to help with any queries 😃
+  utter_ask_permission:
+  - text: Do you want to give me your name?
+  - text: Would you like to say your name?
+  - text: Are you ok with me knowing your name?
+  utter_ask_name:
+  - text: What is your name?
+  utter_submit:
+  - text: Ok. Thanks!
+  - text: Nice.
+  utter_submit_no_name:
+  - text: Ok. No worries, that is absolutely fine 😅
+  utter_slots_values:
+  - text: I will remember that your name is {first_name}!
+  utter_ask_signup:
+  - text: Would you like to register for an account for FREE and get a better recommendation?
+  utter_inform_name_given:
+  - buttons:
+    - payload: /subscribe_to_updates
+      title: Subscribe for Course Updates
+    - payload: /ask_course
+      title: Search for Courses
+    - payload: /ask_learning_type
+      title: Take a learner test
+    text: "That's fine. Here's what I can offer for you today {first_name}:"
+  utter_inform_no_name:
+  - buttons:
+    - payload: /subscribe_to_updates
+      title: Subscribe for Course Updates
+    - payload: /ask_course
+      title: Search for Courses
+    - payload: /ask_learning_type
+      title: Take a learner test
+    text: "That's fine. Here's what I can offer for you today:"
+  utter_inform_affirm:
+  - text: you can sign up for an account here https://io-search.netlify.app/register
+  utter_ask_email:
+  - text: What is your email address?
+  - text: Of course, enter you email address please 📧
+  - text: Sure, whats your email?
+  utter_subscribed:
+  - text: Check your inbox at {email} in order to finish subscribing to OI's course updates! ✅
+  utter_help:
+  - buttons:
+    - payload: /subscribe_to_updates
+      title: Subscribe for Course Updates
+    - payload: /ask_course
+      title: Search for Courses
+    - payload: /ask_learning_type
+      title: Take a learner test
+    text: "How can I help? Here's what I can offer:"
+  - buttons:
+    - payload: /subscribe_to_updates
+      title: Subscribe for Course Updates
+    - payload: /ask_course
+      title: Search for Courses
+    - payload: /ask_learning_type
+      title: Take a learner test
+    text: "Is there anything else I can do? Here's what I can offer:"
+  utter_youre_welcome:
+  - text: You're welcome!
+  - text: Happy to help 😃
+  - text: Glad I was able to help you!
+  - text: Of course anytime.
+  utter_inform_course:
+  - text: |-
+      We offer searches on any of the following subjects:
+      - Arts & Humanities
+      - Business 
+      - Computer Science
+      - Engineering & Science
+      - Health
+      - Mathematics
+      - Personal Development
+      - Social Science
+  utter_give_questionnaire:
+  - text: Take this test ☑📝 and then let me know what learner you are. https://vark-learn.com/the-vark-questionnaire/
+  utter_choose_learner_type:
+  - buttons:
+    - payload: /visual
+      title: Visual
+    - payload: /aural
+      title: Aural
+    - payload: /read_write_learner
+      title: Read/Write
+    - payload: /kinesthetic
+      title: Kinesthetic
+    text: What type of leaner are you?
+  utter_visual:
+  - text: |-
+      So you're a visual learner huh? 👁 The best courses for you would include the following:
+      - Courses that include lots of demonstrations
+      - Courses that include tests
+      - Courses that focus on teaching with visual aids such as; symbols and pictures
+  utter_aural:
+  - text: |-
+      So you're a aural learner huh? 🗣 The best courses for you would include the following:
+      - Courses that include forums that encourage communication
+      - Courses that can offer live webinars for interactions
+      - Courses that allow you to test your knowledge by teaching others
+      - Courses that provide group activities for team work interaction.
+  utter_read_write:
+  - text: |-
+      So you're a Read/write learner huh? 📖 The best courses for you would include the following:
+      - Courses that include book recommendations
+      - Courses that offer reading comprehensions and then questions to answer
+      - Maybe courses aren't what you're looking for ... Maybe what you need are books to get the most out of learning something new
+  utter_kinesthetic:
+  - text: |-
+      So you're a kinesthetic learner huh? 🖐 The best courses for you would include the following:
+      - Courses that you can explore with physical senses e.g painting or carrying out experiments
+      - Courses that can offer live webinars for interactions
+      - Courses that allow you to test your knowledge by making your own projects
+  utter_out_of_scope:
+  - text: Sorry, I can't handle that request.
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  - text: Sorry I didn't get that. Can you rephrase?
+  - text: Sorry, can't help you there lol, I'm only a bot
+  utter_sorry:
+  - text: Sorry that didn't make you feel better.
+  utter_chitchat_howareyou:
+  - text: I'm doing pretty allright thanks!
+  - text: Soooo tired! A lot of people to deal with, not easy being a bot you know! 😉
+  - text: I wish I knew how to feel, I'm only a robot.😔
+  utter_chitchat_bday:
+  - text: I don't have a birthday silly! 😂
+  - text: Well to you humans birthdays mean when you were born right? Well, I was created on 12/07/2021!
+  utter_chitchat_angry_user:
+  - text: I'm sorry you feel that way.
+  utter_chitchat_created:
+  - text: I was created by Ciaram, Munzer & Jacob
+
+
+actions:
+- utter_ask_email
+- utter_ask_name
+- utter_ask_permission
+- utter_ask_signup
+- utter_aural
+- utter_choose_learner_type
+- utter_give_questionnaire
+- utter_greet
+- utter_happy
+- utter_help
+- utter_inform_affirm
+- utter_inform_course
+- utter_inform_name_given
+- utter_inform_no_name
+- utter_kinesthetic
+- utter_out_of_scope
+- utter_read_write
+- utter_slots_values
+- utter_sorry
+- utter_submit
+- utter_submit_no_name
+- utter_subscribed
+- utter_visual
+- utter_youre_welcome
+- validate_name_form
+- utter_chitchat_howareyou
+- utter_chitchat_bday
+- utter_chitchat_angry_user
+- utter_chitchat_created
+
+forms:
+  name_form:
+    required_slots:
+      first_name:
+      - type: from_text
+  email_form:
+    required_slots:
+      email:
+      - type: from_text

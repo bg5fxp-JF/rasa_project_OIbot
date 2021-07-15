@@ -1,0 +1,207 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_sorry
+
+- story: interactive_story_1_deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_permission
+  - intent: affirm
+  - action: utter_ask_name
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name:
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: utter_ask_signup
+  - intent: deny
+  - action: utter_inform_name_given
+
+- story: interactive_story_1_affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_permission
+  - intent: affirm
+  - action: utter_ask_name
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name:
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: utter_ask_signup
+  - intent: affirm
+  - action: utter_inform_affirm
+  - action: utter_help
+
+- story: Submit_email_form
+  steps:
+  - intent: subscribe_to_updates
+  - action: email_form
+  - active_loop: email_form
+  - slot_was_set:
+    - email:
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_subscribed
+  - action: utter_help
+
+- story: Subrscribed to updates
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_permission
+  - intent: affirm
+  - action: utter_ask_name
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name: jac
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: utter_ask_signup
+  - intent: affirm
+  - action: utter_inform_affirm
+  - action: utter_help
+  - intent: subscribe_to_updates
+  - action: email_form
+  - active_loop: email_form
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: my@example.com
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_subscribed
+  - action: utter_help
+
+- story: aural learner
+  steps:
+  - intent: ask_learning_type
+  - action: utter_give_questionnaire
+  - action: utter_choose_learner_type
+  - intent: aural
+  - action: utter_aural
+
+
+- story: visual learner
+  steps:
+  - intent: ask_learning_type
+  - action: utter_give_questionnaire
+  - action: utter_choose_learner_type
+  - intent: visual
+  - action: utter_visual
+
+
+- story: read/write learner
+  steps:
+  - intent: ask_learning_type
+  - action: utter_give_questionnaire
+  - action: utter_choose_learner_type
+  - intent: read_write_learner
+  - action: utter_read_write
+
+
+- story: kinesthetic learner
+  steps:
+  - intent: ask_learning_type
+  - action: utter_give_questionnaire
+  - action: utter_choose_learner_type
+  - intent: kinesthetic
+  - action: utter_kinesthetic
+
+
+- story: ask course story
+  steps:
+  - intent: ask_course
+  - action: utter_inform_course
+
+
+
+- story: no name sign up story deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_permission
+  - intent: deny
+  - action: utter_submit_no_name
+  - action: utter_ask_signup
+  - intent: deny
+  - action: utter_inform_no_name
+
+- story: no name sign up story affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_permission
+  - intent: deny
+  - action: utter_submit_no_name
+  - action: utter_ask_signup
+  - intent: affirm
+  - action: utter_inform_affirm
+  - action: utter_help
+
+
+- story: who made you
+  steps:
+  - intent: chitchat_who_made_you
+  - action: utter_chitchat_created
+
+- story: how does the bot feel
+  steps:
+  - intent: chitchat_how_are_you
+  - action: utter_chitchat_howareyou
+
+
+- story: bday of bot
+  steps:
+  - intent: chitchat_happy_birthday
+  - action: utter_chitchat_bday
+
+- story: angry user
+  steps:
+  - intent: chitchat_angry_user
+  - action: utter_chitchat_angry_user

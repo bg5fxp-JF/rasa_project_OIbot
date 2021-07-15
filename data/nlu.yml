@@ -1,0 +1,246 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hey!
+    - Hallo
+    - hello
+    - Good day
+    - Good morning
+    - yo
+    - Howdy!
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hi
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - correct
+    - sure
+    - ok
+    - why not
+    - ok great
+    - yes, i am
+    - yeah great
+    - yh
+    - yes that's good
+    - fine
+    - i sure am
+    - you bet
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - absolutely not
+    - i didn't
+    - nope
+    - sadly not
+    - didn't do any
+    - could have been better
+    - not great
+    - I don't want to give my name
+    - I'm not comfortable with giving you my name
+    - I'm not comfortable with giving my name out
+    - i don't have to
+    - i don't want to
+    - nah allow it
+    - i dont want to give my name
+    - i dont my name to be given
+    - Why?
+    - why do you want to know my name?
+    - why is that?
+    - why do you need my name
+    - why would you like to know my name?
+    - no thanks
+    - no thank you
+    - NO thank you though
+    - no maybe next time
+    - maybe another time
+    - not today
+    - some other time thanks
+    - some other time
+    - why do you ask
+- intent: mood_great
+  examples: |
+    - i am happy
+    - i don't feel bad
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - i feeling down
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    - can you make me feel better?
+    - can you make me happy?
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: request_names
+  examples: |
+    - do you know my name?
+- intent: subscribe_to_updates
+  examples: |
+    - I would like to subscribe to updates
+    - i would like to subscribe
+    - can i subscribe to your updates
+    - can i sub?
+    - Can I be on your mailing list?
+    - The tool looks interesting, I would like to be subscribed for updates please
+    - How can I subscribe?
+- intent: thankyou
+  examples: |
+    - Thanks for helping😊
+    - Thank you!
+    - thank you!!!
+    - Thanks
+    - thank you for helping me today
+    - thank you
+- intent: ask_course
+  examples: |
+    - what courses do you offer?
+    - i want to improve
+    - what courses can i search for?
+    - what subjects do you provide courses for
+    - how many subjects are there?
+    - I want to search for courses
+- intent: ask_learning_type
+  examples: |
+    - what is my learning type?
+    - i'd like to take the learning test
+    - I want to see how I can learn best
+    - learning test
+    - learning type
+    - what's the best way i can learn
+    - I'm not sure on what to learn, could you maybe help me understand which path to take?
+    - what learner am I?
+- intent: visual
+  examples: |
+    - i am a visual
+    - visual
+    - I definitely learn things visually best!
+- intent: aural
+  examples: |
+    - i am a aural
+    - aural
+- intent: read_write_learner
+  examples: |
+    - i am a read/write
+    - read/write
+- intent: kinesthetic
+  examples: |
+    - i am a Kinesthetic
+    - Kinesthetic
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+    - Can you help me do my homework?
+    - I'm soo hungry
+    - My girlfriend left me 😭
+    - What's the weather like
+    - what is the weather today
+
+- intent: need_help
+  examples: |
+    - what do you offer again?
+    - why am i here?
+    - what do you offer?
+    - can you help?
+    - need help
+    - help
+    - Help Please!
+    - what do you do?
+- intent: chitchat_how_are_you
+  examples: |
+    - how are you?
+    - how are you doing?
+    - hows it going?
+    - are you ok?
+    - are you sad?
+    - are you happy?
+    - what are you feeling?
+    - do you feel emotion?
+    - what do you feel?
+    - how are you feeling?
+    - how do you feel?
+
+- intent: chitchat_happy_birthday
+  examples: |
+    - happy birthday
+    - is it your birtthday?
+    - whes your birthday
+    - HAPPY BIRTHDAY
+    - congratulations! happy birthday
+
+- intent: chitchat_angry_user
+  examples: |
+    - you're horrible
+    - you're annoying
+    - you bore me
+    - you're boring
+    - your bad
+    - you suck
+
+- intent: chitchat_who_made_you
+  examples: |
+    - who made you?
+    - who is your creator?
+    - who created you
+    - who are your parents
+
