@@ -11,7 +11,8 @@ pipeline:
     max_ngram: 4
   - name: DIETClassifier
     epochs: 100
-
+  - name: FallbackClassifier
+    threshold: 0.5
 policies:
   - name: MemoizationPolicy
   - name: TEDPolicy

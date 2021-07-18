@@ -30,16 +30,15 @@ stories:
   - action: utter_ask_permission
   - intent: affirm
   - action: utter_ask_name
-  - action: name_form
-  - active_loop: name_form
+  - intent: inform
+    entities:
+    - first_name: jacob
   - slot_was_set:
-    - requested_slot: first_name
-  - slot_was_set:
-    - first_name:
+    - first_name: jacob
+  - action: utter_submit
+  - action: validate_name_form
   - slot_was_set:
     - requested_slot: null
-  - active_loop: null
-  - action: utter_submit
   - action: utter_slots_values
   - action: utter_ask_signup
   - intent: deny
@@ -52,16 +51,15 @@ stories:
   - action: utter_ask_permission
   - intent: affirm
   - action: utter_ask_name
-  - action: name_form
-  - active_loop: name_form
+  - intent: inform
+    entities:
+    - first_name: jacob
   - slot_was_set:
-    - requested_slot: first_name
-  - slot_was_set:
-    - first_name:
+    - first_name: jacob
+  - action: utter_submit
+  - action: validate_name_form
   - slot_was_set:
     - requested_slot: null
-  - active_loop: null
-  - action: utter_submit
   - action: utter_slots_values
   - action: utter_ask_signup
   - intent: affirm
@@ -71,14 +69,14 @@ stories:
 - story: Submit_email_form
   steps:
   - intent: subscribe_to_updates
-  - action: email_form
-  - active_loop: email_form
+  - action: utter_ask_email
+  - intent: inform
+    entities:
+    - email: my@example.com
   - slot_was_set:
-    - email:
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
+    - email: my@example.com
   - action: utter_submit
+#  - action: validate_email_form
   - action: utter_subscribed
   - action: utter_help
 
@@ -89,34 +87,33 @@ stories:
   - action: utter_ask_permission
   - intent: affirm
   - action: utter_ask_name
-  - action: name_form
-  - active_loop: name_form
+  - intent: inform
+    entities:
+    - first_name: jacob
   - slot_was_set:
-    - requested_slot: first_name
-  - slot_was_set:
-    - first_name: jac
+    - first_name: jacob
+  - action: utter_submit
+  - action: validate_name_form
   - slot_was_set:
     - requested_slot: null
-  - active_loop: null
-  - action: utter_submit
   - action: utter_slots_values
   - action: utter_ask_signup
   - intent: affirm
   - action: utter_inform_affirm
   - action: utter_help
   - intent: subscribe_to_updates
-  - action: email_form
-  - active_loop: email_form
-  - slot_was_set:
-    - requested_slot: email
-  - slot_was_set:
+  - action: utter_ask_email
+  - intent: inform
+    entities:
     - email: my@example.com
   - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
+    - email: my@example.com
   - action: utter_submit
+#  - action: validate_email_form
   - action: utter_subscribed
   - action: utter_help
+
+
 
 - story: aural learner
   steps:
@@ -205,3 +202,6 @@ stories:
   steps:
   - intent: chitchat_angry_user
   - action: utter_chitchat_angry_user
+
+
+

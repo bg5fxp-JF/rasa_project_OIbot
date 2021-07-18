@@ -3,19 +3,18 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- inform
+- subscribe_to_updates
+- affirm
+- greet
 - thankyou
 - deny
 - read_write_learner
-- greet
 - ask_learning_type
 - kinesthetic
 - visual
 - aural
 - ask_course
-- subscribe_to_updates
-- email_examples
-- affirm
-- name_examples
 - request_names
 - goodbye
 - mood_great
@@ -27,6 +26,9 @@ intents:
 - chitchat_angry_user
 - chitchat_happy_birthday
 - chitchat_how_are_you
+entities:
+- email
+- first_name
 slots:
   first_name:
     type: text
@@ -34,6 +36,9 @@ slots:
   email:
     type: text
     influence_conversation: true
+  requested_slot:
+    type: text
+
 responses:
   utter_greet:
   - text: Hello! Welcome to Otermans Institute’s Course Selector Tool. I am a Digital Assistant and my goal is to help you find the course that best suits you.
@@ -72,7 +77,7 @@ responses:
       title: Search for Courses
     - payload: /ask_learning_type
       title: Take a learner test
-    text: "That's fine. Here's what I can offer for you today {first_name}:"
+    text: That's fine. Here's what I can offer for you today {first_name}:"
   utter_inform_no_name:
   - buttons:
     - payload: /subscribe_to_updates
@@ -112,6 +117,9 @@ responses:
   - text: Happy to help 😃
   - text: Glad I was able to help you!
   - text: Of course anytime.
+  - text: 😉
+  - text: 👍
+  - text: 🦾
   utter_inform_course:
   - text: |-
       We offer searches on any of the following subjects:
@@ -168,6 +176,10 @@ responses:
   - text: Sorry, can't help you there lol, I'm only a bot
   utter_sorry:
   - text: Sorry that didn't make you feel better.
+  utter_reply_name:
+  - text: Your name is {first_name}
+  utter_reply_no_name:
+  - text: You haven't given me your name yet.
   utter_chitchat_howareyou:
   - text: I'm doing pretty allright thanks!
   - text: Soooo tired! A lot of people to deal with, not easy being a bot you know! 😉
@@ -179,14 +191,16 @@ responses:
   - text: I'm sorry you feel that way.
   utter_chitchat_created:
   - text: I was created by Ciaram, Munzer & Jacob
-
-
 actions:
 - utter_ask_email
 - utter_ask_name
 - utter_ask_permission
 - utter_ask_signup
 - utter_aural
+- utter_chitchat_angry_user
+- utter_chitchat_bday
+- utter_chitchat_created
+- utter_chitchat_howareyou
 - utter_choose_learner_type
 - utter_give_questionnaire
 - utter_greet
@@ -199,6 +213,8 @@ actions:
 - utter_kinesthetic
 - utter_out_of_scope
 - utter_read_write
+- utter_reply_name
+- utter_reply_no_name
 - utter_slots_values
 - utter_sorry
 - utter_submit
@@ -207,17 +223,5 @@ actions:
 - utter_visual
 - utter_youre_welcome
 - validate_name_form
-- utter_chitchat_howareyou
-- utter_chitchat_bday
-- utter_chitchat_angry_user
-- utter_chitchat_created
+#- validate_email_form
 
-forms:
-  name_form:
-    required_slots:
-      first_name:
-      - type: from_text
-  email_form:
-    required_slots:
-      email:
-      - type: from_text

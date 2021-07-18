@@ -92,6 +92,7 @@ nlu:
     - i am happy
     - i don't feel bad
     - perfect
+    - nice
     - great
     - amazing
     - feeling like a king
@@ -109,6 +110,7 @@ nlu:
   examples: |
     - my day was horrible
     - I am sad
+    - can you cheer me up?
     - i feeling down
     - I don't feel very well
     - I am disappointed
@@ -133,6 +135,13 @@ nlu:
 - intent: request_names
   examples: |
     - do you know my name?
+    - do you remember my name?
+    - whats my name?
+    - what is my name?
+    - remember my name?
+    - who am i?
+    - who am I
+    - how am i called
 - intent: subscribe_to_updates
   examples: |
     - I would like to subscribe to updates
@@ -142,6 +151,7 @@ nlu:
     - Can I be on your mailing list?
     - The tool looks interesting, I would like to be subscribed for updates please
     - How can I subscribe?
+    - i want to subscribe
 - intent: thankyou
   examples: |
     - Thanks for helping😊
@@ -195,7 +205,38 @@ nlu:
     - My girlfriend left me 😭
     - What's the weather like
     - what is the weather today
-
+    - please help with my ice cream it's dripping
+    - no wait go back i want a dripping ice cream but a cone that catches it so you can drink the ice cream later
+    - i want a non dripping ice cream
+    - someone call the police i think the bot died
+    - show me a picture of a chicken
+    - neither
+    - I want french cuisine
+    - i am hungry
+    - restaurant
+    - can i be shown a gluten free restaurant
+    - i don't care!!!!
+    - i do not care how are you
+    - again?
+    - oh wait i gave you my work email address can i change it?
+    - hang on let me find it
+    - stop it, i do not care!!!
+    - how come?
+    - I changed my mind
+    - what?
+    - did i break you
+    - that link doesn't work!
+    - you already have that
+    - this is a really frustrating experience
+    - no stop
+    - give me food
+    - i want food
+    - Can I ask you questions first?
+    - is it a wasteland full of broken robot parts?
+    - can we keep chatting?
+    - talk to me
+    - who is your favourite robot?
+    - can you help me to build a bot
 - intent: need_help
   examples: |
     - what do you offer again?
@@ -219,7 +260,6 @@ nlu:
     - what do you feel?
     - how are you feeling?
     - how do you feel?
-
 - intent: chitchat_happy_birthday
   examples: |
     - happy birthday
@@ -227,7 +267,6 @@ nlu:
     - whes your birthday
     - HAPPY BIRTHDAY
     - congratulations! happy birthday
-
 - intent: chitchat_angry_user
   examples: |
     - you're horrible
@@ -236,11 +275,30 @@ nlu:
     - you're boring
     - your bad
     - you suck
-
+    - you smell
 - intent: chitchat_who_made_you
   examples: |
     - who made you?
     - who is your creator?
     - who created you
     - who are your parents
-
+- intent: inform
+  examples: |
+    - my name is [jacob](first_name)
+    - [jaco](first_name)
+    - [Jacob](first_name)
+    - [munzer](first_name) is the name
+    - you can call me [ciariam](first_name) if you want
+    - people call me [John](first_name)
+    - I go by the name [Sally](first_name)
+    - I am named [Sarah](first_name)
+    - [Joe smith](first_name)
+    - [alex sandro](first_name)
+    - [Jacob Fecunda](first_name)
+    - my email is [jf@example.com](email)
+    - email is [jacob@example.com](email)
+    - [email@fakeemail.com](email)
+    - This is my email [cool@gmail.com](email)
+    - I'd like to subscribe using [jfjf@outlook.com](email)
+    - [jacob](first_name)
+    - [jf@exampe.com](email)
