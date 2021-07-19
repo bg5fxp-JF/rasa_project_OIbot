@@ -33,13 +33,10 @@ entities:
 slots:
   first_name:
     type: text
-    influence_conversation: true
   email:
     type: text
-    influence_conversation: true
   requested_slot:
     type: text
-    influence_conversation: true
 responses:
   utter_greet:
   - text: Hello! Welcome to Otermans Institute’s Course Selector Tool. I am a Digital Assistant and my goal is to help you find the course that best suits you.
@@ -92,8 +89,8 @@ responses:
   - text: you can sign up for an account here https://io-search.netlify.app/register
   utter_ask_email:
   - text: What is your email address?
-  - text: Of course, enter you email address please 📧
-  - text: Sure, whats your email?
+  - text: Enter you email address please 📧
+  - text: What's your email?
   utter_subscribed:
   - text: Check your inbox at {email} in order to finish subscribing to OI's course updates! ✅
   utter_help:
@@ -225,3 +222,4 @@ actions:
 - utter_visual
 - utter_youre_welcome
 - validate_name_form
+- validate_email_form

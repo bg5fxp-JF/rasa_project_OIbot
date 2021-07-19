@@ -63,4 +63,5 @@ rules:
   steps:
   - intent: request_names
   - action: utter_reply_no_name
+  - action: utter_ask_permission
 

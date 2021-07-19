@@ -302,6 +302,10 @@ nlu:
     - This is my email [cool@gmail.com](email)
     - I'd like to subscribe using [jfjf@outlook.com](email)
     - [jacob](first_name)
+    - [hfjksdlhfjklsd](email)
+    - [thismyemail.com](email)
+    - [jj](first_name)
+    - my name is [oi](first_name)
     - [jf@exampe.com](email)
 - intent: give_time
   examples: |

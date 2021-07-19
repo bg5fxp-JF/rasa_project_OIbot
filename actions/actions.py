@@ -1,52 +1,63 @@
 import re
 import datetime as dt
+from abc import ABC
 from typing import Text, List, Any, Dict
 from rasa_sdk import Tracker, FormValidationAction, Action
+from rasa_sdk.events import EventType
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
 
-class ValidateNameForm(FormValidationAction):
+class ValidateNameForm(Action):
+
     def name(self) -> Text:
         return "validate_name_form"
 
-    def validate_first_name(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         """Validate `first_name` value."""
 
         first_name = tracker.get_slot("first_name")
         # If the name is super short, it might be wrong.
-        print(f"First name given =" + first_name + "length = {len(slot_value)}")
+        # print(f"First name given =" + first_name + "length = {len(slot_value)}")
         if len(first_name) <= 2:
             dispatcher.utter_message(text="That's a very short name. I'm assuming you mis-spelled.")
-            return {"first_name": None}
+            return [{"first_name": None}]
         else:
-            return {"first_name": first_name}
+            return [{"first_name": first_name}]
 
-# class ValidateEmail(Action):
-#     def name(self) -> Text:
-#         return "validate_email_form"
-#
-#     def validate_email(
-#         self,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: DomainDict,
-#     ) -> Dict[Text, Any]:
-#         """Validate `email` value."""
-#
-#         email = tracker.get_slot("email")
-#         # If the name is super short, it might be wrong.
-#         print(f"email given =" + email + "length = {len(slot_value)}")
-#         if re.Match(r"[a-zA-Z0-9_.±]+@[a-zA-Z]+.[^@]+", str(email)):
-#             return {"email": email}
-#         else:
-#             dispatcher.utter_message(text="Invalid email")
-#             return {"email": None}
+
+class ValidateEmail(Action):
+    def name(self) -> Text:
+        return "validate_email_form"
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        """Validate `email` value."""
+        email = tracker.get_slot("email")
+        valid = re.search(r"[\w-]{1,20}@\w{2,20}\.\w{2,3}$", str(email))
+        # If the name is super short, it might be wrong.
+
+        if valid:
+            print("valid email")
+            dispatcher.utter_message(response="utter_subscribed")
+            dispatcher.utter_message(response="utter_help")
+            return [{"email": email}]
+        else:
+            dispatcher.utter_message(text=f"Actually, {email} is an invalid email. Try again.")
+            dispatcher.utter_message(response="utter_ask_email")
+            print(f"{email} is invalid")
+            return [{"email": None}]
+
 
 # class SayName(Action):
 #     def name(self) -> Text:
@@ -78,5 +89,5 @@ class ActionTime(Action):
         now = dt.datetime.now().strftime("Today's date is %d/%m/%Y 🗓 and the time is %H:%M ⌚️")
 
         dispatcher.utter_message(text=f"{now}️")
-
+        print("telling the time")
         return []

@@ -76,9 +76,8 @@ stories:
   - slot_was_set:
     - email: my@example.com
   - action: utter_submit
-#  - action: validate_email_form
-  - action: utter_subscribed
-  - action: utter_help
+  - action: validate_email_form
+
 
 - story: Subrscribed to updates
   steps:
@@ -109,9 +108,7 @@ stories:
   - slot_was_set:
     - email: my@example.com
   - action: utter_submit
-#  - action: validate_email_form
-  - action: utter_subscribed
-  - action: utter_help
+  - action: validate_email_form
 
 
 
