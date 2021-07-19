@@ -1,4 +1,5 @@
 import re
+import datetime as dt
 from typing import Text, List, Any, Dict
 from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.executor import CollectingDispatcher
@@ -64,3 +65,18 @@ class ValidateNameForm(FormValidationAction):
 #             dispatcher.utter_message(text=f"You haven't given me your name yet.")
 #         else:
 #             dispatcher.utter_message(text=f"Your name is {first_name}")
+
+
+class ActionTime(Action):
+
+    def name(self) -> Text:
+        return "action_show_time"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        now = dt.datetime.now().strftime("Today's date is %d/%m/%Y 🗓 and the time is %H:%M ⌚️")
+
+        dispatcher.utter_message(text=f"{now}️")
+
+        return []

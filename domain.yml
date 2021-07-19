@@ -3,6 +3,7 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- give_time
 - inform
 - subscribe_to_updates
 - affirm
@@ -38,7 +39,7 @@ slots:
     influence_conversation: true
   requested_slot:
     type: text
-
+    influence_conversation: true
 responses:
   utter_greet:
   - text: Hello! Welcome to Otermans Institute’s Course Selector Tool. I am a Digital Assistant and my goal is to help you find the course that best suits you.
@@ -192,6 +193,7 @@ responses:
   utter_chitchat_created:
   - text: I was created by Ciaram, Munzer & Jacob
 actions:
+- action_show_time
 - utter_ask_email
 - utter_ask_name
 - utter_ask_permission
@@ -223,5 +225,3 @@ actions:
 - utter_visual
 - utter_youre_welcome
 - validate_name_form
-#- validate_email_form
-

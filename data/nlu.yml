@@ -237,6 +237,7 @@ nlu:
     - talk to me
     - who is your favourite robot?
     - can you help me to build a bot
+    - its ok
 - intent: need_help
   examples: |
     - what do you offer again?
@@ -302,3 +303,26 @@ nlu:
     - I'd like to subscribe using [jfjf@outlook.com](email)
     - [jacob](first_name)
     - [jf@exampe.com](email)
+- intent: give_time
+  examples: |
+    - can you tell me what time it is
+    - tell me the time
+    - got the time
+    - what time is it
+    - whats the time?
+    - can you tell me what is the time
+    - i want the time
+    - what is the time
+    - i want to know what the time is
+    - can i have the time please?
+    - what's the date?
+    - whats the date and time
+    - can you tell me what the date is today
+    - what day is it today
+    - whats todays date
+    - date and time please
+    - ⏱
+    - 🕐
+    - 🕖
+    - ⏰
+    - ⌚️
