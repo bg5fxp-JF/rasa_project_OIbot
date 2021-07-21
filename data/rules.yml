@@ -12,11 +12,6 @@ rules:
   - intent: thankyou
   - action: utter_youre_welcome
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
-
 - rule: whenever user needs a reminder of what is offered
   steps:
     - intent: need_help
@@ -65,3 +60,7 @@ rules:
   - action: utter_reply_no_name
   - action: utter_ask_permission
 
+- rule: chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat

@@ -11,6 +11,14 @@ pipeline:
     max_ngram: 4
   - name: DIETClassifier
     epochs: 100
+  - name: ResponseSelector
+    retrieval_intent: out_of_scope
+    scale_loss: false
+    epochs: 100
+  - name: ResponseSelector
+    retrieval_intent: chitchat
+    scale_loss: false
+    epochs: 100
   - name: FallbackClassifier
     threshold: 0.5
 policies:
