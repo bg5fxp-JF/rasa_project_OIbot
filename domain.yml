@@ -3,6 +3,10 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- chitchat:
+    is_retrieval_intent: true
+- out_of_scope:
+    is_retrieval_intent: true
 - give_time
 - inform
 - subscribe_to_updates
@@ -20,24 +24,93 @@ intents:
 - goodbye
 - mood_great
 - mood_unhappy
-- bot_challenge
-- out_of_scope
+- out_of_scope.yml
 - need_help
-- chitchat_who_made_you
-- chitchat_angry_user
-- chitchat_happy_birthday
-- chitchat_how_are_you
+- chitchat.yml
 entities:
 - email
 - first_name
 slots:
   first_name:
     type: text
+    influence_conversation: true
   email:
     type: text
+    influence_conversation: true
   requested_slot:
     type: text
+    influence_conversation: true
 responses:
+  utter_out_of_scope/non_english:
+  - text: I only understand English, I'm sorry.
+  - text: At this moment I only understand English ☹️
+  utter_out_of_scope/other:
+  - text: I can't help you with that, I'm sorry.
+  - text: Sorry, I can't handle that request.
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  - text: Sorry I didn't get that. Can you rephrase?
+  - text: Sorry, can't help you there lol, I'm only a bot
+  utter_chitchat/ask_howbuilt:
+  - text: I was built with a lot of love and patience.
+  - text: Well, when two chatbots love each other very much...
+  - text: They always ask how I was built, but never how I am...
+  - text: I was made by software engineers, but hard work is what built me.
+  - text: I'm building myself every day. I've been working out, did you notice?
+  utter_chitchat/who_made_you:
+  - text: I was created by Ciaram, Munzer & Jacob! 🧠
+  utter_chitchat/ask_isbot:
+  - text: Yep, I'm a bot!
+  - text: Yes, I'm a bot.
+  - text: Yep, you guessed it, I'm a bot!
+  - text: I am indeed a bot 🤖
+  - text: Yes, I am haha. I am OI's search tool bot 🤖 here to help with any queries 😃
+  utter_chitchat/ask_ishuman:
+  - text: I'm not a human, I'm a bot! 🤖 I am OI's search tool bot 🤖 here to help with any queries 😃
+  utter_chitchat/ask_languagesbot:
+  - text: I can spell baguette in French, but unfortunately English is the only language I can answer you in.
+  - text: I am in the process of learning, but at the moment I can only speak English.
+  - text: Binary code and the language of love. And English.
+  - text: I was written in Python, but for your convenience I'll translate to English.
+  utter_chitchat/ask_weather:
+  - text: I don't know about where you live, but in my world it's always sunny 🔆
+  - text: It's getting pretty chilly!
+  - text: Where I'm from, it's almost never-leaving-the-house weather.
+  utter_chitchat/ask_wherefrom:
+  - text: I was taught not to give out my address on the internet.
+  - text: My address starts with github.com.
+  utter_chitchat/ask_whoami:
+  - text: I hope you are being yourself.
+  - text: Who do you think you are?
+  - text: Unfortunately I haven't been programmed with the amount of necessary philosophy knowledge to answer that.
+  utter_chitchat/ask_whoisit:
+  - text: I am OI's search tool bot 🤖 here to help with any queries 😃
+  utter_chitchat/how_are_you:
+  - text: I'm doing pretty allright thanks!
+  - text: Soooo tired! A lot of people to deal with, not easy being a bot you know! 😉
+  - text: I wish I knew how to feel, I'm only a robot.😔
+  - text: I'm great! Thanks for asking.
+  - text: I'm good, thanks!
+  - text: A little bit too warm, otherwise fine.
+  - text: A little bit cold, otherwise fine.
+  utter_chitchat/happy_birthday:
+  - text: I don't have a birthday silly! 😂 So I don't know how old I am :)
+  - text: Well to you humans birthdays mean when you were born right? Well, I was created on 12/07/2021!
+  - text: I don't have a birthday but i'm Old enough to be a bot!
+  - text: Age is just an issue of mind over matter. If you don’t mind, it doesn’t matter.
+  - text: Why do you ask? Are my wrinkles showing? 😨
+  utter_chitchat/angry_user:
+  - text: I'm sorry you feel that way.
+  - text: That's not very nice 😢
+  - text: Beep...Bop... Can't process rudeness...
+  - text: I'll pretend I didn't process that mean comment.
+  utter_chitchat/telljoke:
+  - text: Why are eggs not very much into jokes? - Because they could crack up.
+  - text: What's a tree's favorite drink? - Root beer!
+  - text: Why do the French like to eat snails so much? - They can't stand fast food.
+  - text: Why did the robot get angry? - Because someone kept pushing its buttons.
+  - text: What do you call a pirate droid? - Arrrr-2-D2
+  - text: Why did the robot cross the road? - Because he was programmed to.
+  - text: Not really a joke...but if you say Space Ghettos in an American accent, it sounds exactly the same as Spice Girls in a Scottish accent (vice versa). Try it 😂
   utter_greet:
   - text: Hello! Welcome to Otermans Institute’s Course Selector Tool. I am a Digital Assistant and my goal is to help you find the course that best suits you.
   utter_cheer_up:
@@ -50,8 +123,6 @@ responses:
   utter_goodbye:
   - text: Ok, goodbye for now. Until next time 😃
   - text: Until next time, goodbye! 👋
-  utter_iamabot:
-  - text: I am a bot haha. I am OI's search tool bot here to help with any queries 😃
   utter_ask_permission:
   - text: Do you want to give me your name?
   - text: Would you like to say your name?
@@ -167,59 +238,13 @@ responses:
       - Courses that you can explore with physical senses e.g painting or carrying out experiments
       - Courses that can offer live webinars for interactions
       - Courses that allow you to test your knowledge by making your own projects
-  utter_out_of_scope:
-  - text: Sorry, I can't handle that request.
-  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
-  - text: Sorry I didn't get that. Can you rephrase?
-  - text: Sorry, can't help you there lol, I'm only a bot
   utter_sorry:
   - text: Sorry that didn't make you feel better.
   utter_reply_name:
   - text: Your name is {first_name}
   utter_reply_no_name:
   - text: You haven't given me your name yet.
-  utter_chitchat_howareyou:
-  - text: I'm doing pretty allright thanks!
-  - text: Soooo tired! A lot of people to deal with, not easy being a bot you know! 😉
-  - text: I wish I knew how to feel, I'm only a robot.😔
-  utter_chitchat_bday:
-  - text: I don't have a birthday silly! 😂
-  - text: Well to you humans birthdays mean when you were born right? Well, I was created on 12/07/2021!
-  utter_chitchat_angry_user:
-  - text: I'm sorry you feel that way.
-  utter_chitchat_created:
-  - text: I was created by Ciaram, Munzer & Jacob
 actions:
 - action_show_time
-- utter_ask_email
-- utter_ask_name
-- utter_ask_permission
-- utter_ask_signup
-- utter_aural
-- utter_chitchat_angry_user
-- utter_chitchat_bday
-- utter_chitchat_created
-- utter_chitchat_howareyou
-- utter_choose_learner_type
-- utter_give_questionnaire
-- utter_greet
-- utter_happy
-- utter_help
-- utter_inform_affirm
-- utter_inform_course
-- utter_inform_name_given
-- utter_inform_no_name
-- utter_kinesthetic
-- utter_out_of_scope
-- utter_read_write
-- utter_reply_name
-- utter_reply_no_name
-- utter_slots_values
-- utter_sorry
-- utter_submit
-- utter_submit_no_name
-- utter_subscribed
-- utter_visual
-- utter_youre_welcome
-- validate_name_form
 - validate_email_form
+- validate_name_form

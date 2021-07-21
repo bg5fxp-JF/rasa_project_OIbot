@@ -1,7 +1,6 @@
 version: "2.0"
 
 stories:
-
 - story: happy path
   steps:
   - intent: mood_great
@@ -111,7 +110,6 @@ stories:
   - action: validate_email_form
 
 
-
 - story: aural learner
   steps:
   - intent: ask_learning_type
@@ -179,30 +177,94 @@ stories:
   - action: utter_help
 
 
-- story: who made you
-  steps:
-  - intent: chitchat_who_made_you
-  - action: utter_chitchat_created
+#- story: who made you
+#  steps:
+#  - intent: chitchat_who_made_you
+#  - action: utter_chitchat_created
+#
+#- story: how does the bot feel
+#  steps:
+#  - intent: chitchat_how_are_you
+#  - action: utter_chitchat_howareyou
 
-- story: how does the bot feel
-  steps:
-  - intent: chitchat_how_are_you
-  - action: utter_chitchat_howareyou
-
-
-- story: bday of bot
-  steps:
-  - intent: chitchat_happy_birthday
-  - action: utter_chitchat_bday
-
-- story: angry user
-  steps:
-  - intent: chitchat_angry_user
-  - action: utter_chitchat_angry_user
+#
+#- story: bday of bot
+#  steps:
+#  - intent: chitchat_happy_birthday
+#  - action: utter_chitchat_bday
+#
+#- story: angry user
+#  steps:
+#  - intent: chitchat_angry_user
+#  - action: utter_chitchat_angry_user
 
 
 - story: path about time
   steps:
   - intent: give_time
   - action: action_show_time
-
+#
+#- story: chitchat 1
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 2
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 3
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 4
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 5
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 6
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 7
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 8
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 9
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 10
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 11
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 12
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#
+#- story: chitchat 13
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
