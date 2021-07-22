@@ -96,6 +96,13 @@ nlu:
     - are you really a bbot?
 - intent: chitchat/ask_ishuman
   examples: |
+    - So you aren't a human?
+    - so im not talikng to a human
+    - am i talking to a person
+    - So youre not a real person?
+    - Ok... so you not a person
+    - rightt, so you aint human then
+    - hmm ok, so you aren't a person
     - hey are you human
     - are u human
     - r u a human
@@ -537,6 +544,9 @@ nlu:
     - your bad
     - you suck
     - you smell
+    - i hate you
+    - i hate you so much
+    - you stink
 - intent: chitchat/telljoke
   examples: |
     - can you tell me a joke?

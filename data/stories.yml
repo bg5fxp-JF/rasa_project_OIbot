@@ -152,7 +152,6 @@ stories:
   - action: utter_inform_course
 
 
-
 - story: no name sign up story deny
   steps:
   - intent: greet
@@ -181,3 +180,16 @@ stories:
   - intent: give_time
   - action: action_show_time
 
+
+- story: when ever user asks for their name and name is null
+  steps:
+  - intent: inform
+    entities:
+    - first_name: jacob
+  - slot_was_set:
+    - first_name: jacob
+  - action: utter_submit
+  - action: validate_name_form
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_slots_values

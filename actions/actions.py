@@ -6,6 +6,9 @@ from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.events import EventType
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
+# import spacy
+#
+# nlp = spacy.load("en_core_web_sm")
 
 
 class ValidateNameForm(Action):

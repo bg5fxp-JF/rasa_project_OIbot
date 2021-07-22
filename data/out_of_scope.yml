@@ -45,6 +45,11 @@ nlu:
     - 卧槽
 - intent: out_of_scope/other
   examples: |
+    - i love you
+    - love ya
+    - are you alive?
+    - are you living
+    - love you soo much
     - I want to order food
     - What is 2 + 2?
     - Who's the US President?
