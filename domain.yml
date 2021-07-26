@@ -3,15 +3,16 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- chitchat:
-    is_retrieval_intent: true
+- greet
+- request_names
+- inform
+- affirm
 - out_of_scope:
     is_retrieval_intent: true
+- chitchat:
+    is_retrieval_intent: true
 - give_time
-- inform
 - subscribe_to_updates
-- affirm
-- greet
 - thankyou
 - deny
 - read_write_learner
@@ -20,13 +21,10 @@ intents:
 - visual
 - aural
 - ask_course
-- request_names
 - goodbye
 - mood_great
 - mood_unhappy
-- out_of_scope.yml
 - need_help
-- chitchat.yml
 entities:
 - email
 - first_name
@@ -140,6 +138,13 @@ responses:
   - text: Would you like to register for an account for FREE and get a better recommendation?
   utter_already_sub:
   - text: You have already subscribed
+  utter_name_already_given:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+    text: I already have your name, did you want to change it?
   utter_inform_name_given:
   - buttons:
     - payload: /subscribe_to_updates
@@ -248,5 +253,29 @@ responses:
   - text: You haven't given me your name yet.
 actions:
 - action_show_time
+- check_name_filled
+- utter_ask_name
+- utter_ask_permission
+- utter_ask_signup
+- utter_chitchat
+- utter_greet
+- utter_out_of_scope
+- utter_slots_values
+- utter_submit
 - validate_email_form
 - validate_name_form
+forms:
+  name_form:
+    required_slots:
+      first_name:
+      - entity: first_name
+        type: from_entity
+      - intent: inform
+        type: from_text
+  email_form:
+    required_slots:
+      email:
+      - entity: email
+        type: from_entity
+      - intent: inform
+        type: from_text

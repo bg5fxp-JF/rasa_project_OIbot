@@ -6,12 +6,14 @@ from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.events import EventType
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
+
+
 # import spacy
 #
 # nlp = spacy.load("en_core_web_sm")
 
 
-class ValidateNameForm(Action):
+class ValidateNameForm(FormValidationAction):
 
     def name(self) -> Text:
         return "validate_name_form"
@@ -29,12 +31,38 @@ class ValidateNameForm(Action):
         # print(f"First name given =" + first_name + "length = {len(slot_value)}")
         if len(first_name) <= 2:
             dispatcher.utter_message(text="That's a very short name. I'm assuming you mis-spelled.")
+            dispatcher.utter_message(text="Enter your name again please")
             return [{"first_name": None}]
         else:
             return [{"first_name": first_name}]
 
 
-class ValidateEmail(Action):
+class Name(Action):
+
+    def name(self) -> Text:
+        return "check_name_filled"
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        """Validate `first_name` value."""
+
+        first_name = tracker.get_slot("first_name")
+        # If the name is super short, it might be wrong.
+        # print(f"First name given =" + first_name + "length = {len(slot_value)}")
+        if first_name is None:
+            dispatcher.utter_message(response="utter_reply_no_name")
+            dispatcher.utter_message(response="utter_ask_permission")
+            return []
+        else:
+            dispatcher.utter_message(response="utter_reply_name")
+            return []
+
+
+class ValidateEmail(FormValidationAction):
     def name(self) -> Text:
         return "validate_email_form"
 

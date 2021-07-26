@@ -171,8 +171,8 @@ nlu:
     - What would be the name on my tombstone?
     - can you tell me my name?
     - what is my name
-    - what is my name?
     - what's my name?
+    - whats my name
 - intent: subscribe_to_updates
   examples: |
     - I would like to subscribe to updates
@@ -226,7 +226,6 @@ nlu:
   examples: |
     - i am a Kinesthetic
     - Kinesthetic
-
 - intent: need_help
   examples: |
     - what do you offer again?
@@ -264,7 +263,6 @@ nlu:
     - come back
     - cool! can I do something else here?
     - hello what can you do for me
-    - help
     - help me
     - help please
     - help pls
@@ -318,7 +316,6 @@ nlu:
     - what can you?
     - what cn u do for me ?
     - what do you do
-    - what do you do?
     - what do you know except this?
     - what else can I do here?
     - what else can i do
@@ -339,7 +336,6 @@ nlu:
     - what can you teache me?
     - Can rasa do calculations?
     - what you can
-
 - intent: inform
   examples: |
     - my name is [jacob](first_name)
@@ -364,7 +360,7 @@ nlu:
     - [jj](first_name)
     - my name is [oi](first_name)
     - [jf@exampe.com](email)
-
+    - my name be [jbob](first_name)
 - intent: give_time
   examples: |
     - can you tell me what time it is
@@ -429,7 +425,6 @@ nlu:
     - what is the time ?
     - what is the time?
     - what time do you have?
-    - what time is it
     - what time is it?
     - what time it is
     - what's the time

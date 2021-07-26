@@ -30,10 +30,14 @@ stories:
   - intent: affirm
   - action: utter_ask_name
   - intent: inform
-    entities:
+  - active_loop: name_form
+  - slot_was_set:
     - first_name: jacob
   - slot_was_set:
     - first_name: jacob
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
   - action: utter_submit
   - action: validate_name_form
   - slot_was_set:
@@ -51,10 +55,14 @@ stories:
   - intent: affirm
   - action: utter_ask_name
   - intent: inform
-    entities:
+  - active_loop: name_form
+  - slot_was_set:
     - first_name: jacob
   - slot_was_set:
     - first_name: jacob
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
   - action: utter_submit
   - action: validate_name_form
   - slot_was_set:
@@ -86,10 +94,14 @@ stories:
   - intent: affirm
   - action: utter_ask_name
   - intent: inform
-    entities:
+  - active_loop: name_form
+  - slot_was_set:
     - first_name: jacob
   - slot_was_set:
     - first_name: jacob
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
   - action: utter_submit
   - action: validate_name_form
   - slot_was_set:
@@ -152,6 +164,32 @@ stories:
   - action: utter_inform_course
 
 
+
+#- story: name already filled 1
+#  steps:
+#  - intent: inform
+#  - action: utter_name_already_given
+#  - intent: affirm
+#  - action: utter_ask_name
+#  - intent: inform
+#    entities:
+#    - first_name: jacob
+#  - slot_was_set:
+#    - first_name: jacob
+#  - action: utter_submit
+#  - action: validate_name_form
+#  - slot_was_set:
+#    - requested_slot: null
+#  - action: utter_slots_values
+#
+#
+#- story: name already filled 2
+#  steps:
+#  - intent: inform
+#  - action: utter_name_already_given
+#  - intent: deny
+#  - action: utter_submit
+
 - story: no name sign up story deny
   steps:
   - intent: greet
@@ -181,8 +219,87 @@ stories:
   - action: action_show_time
 
 
-- story: when ever user asks for their name and name is null
+#- story: when ever user asks for their name and name is null
+#  steps:
+#  - intent: inform
+#  - action: name_form
+#  - active_loop: name_form
+#  - active_loop: null
+#  - action: utter_submit
+#  - action: validate_name_form
+#  - slot_was_set:
+#    - requested_slot: null
+#  - action: utter_slots_values
+#  -
+
+
+- story: story name 1
   steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_permission
+  - intent: affirm
+  - action: utter_ask_name
+  - intent: inform
+  - active_loop: name_form
+  - slot_was_set:
+    - first_name: jacob
+  - slot_was_set:
+    - first_name: jacob
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: validate_name_form
+  - action: utter_slots_values
+  - action: utter_ask_signup
+
+- story: story name 2
+  steps:
+  - intent: inform
+  - active_loop: name_form
+  - slot_was_set:
+    - first_name: jacob
+  - slot_was_set:
+    - first_name: jacob
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: validate_name_form
+  - action: utter_slots_values
+  - action: utter_ask_signup
+
+
+- story: invalid name
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_permission
+  - intent: affirm
+  - action: utter_ask_name
+  - intent: inform
+    entities:
+    - first_name: jj
+  - slot_was_set:
+    - first_name: jj
+  - action: utter_submit
+  - action: validate_name_form
+
+- story: when ever user asks for their name
+  steps:
+  - intent: request_names
+  - action: check_name_filled
+  - intent: deny
+  - action: utter_submit_no_name
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_permission
+  - intent: affirm
+  - action: utter_ask_name
   - intent: inform
     entities:
     - first_name: jacob
@@ -190,6 +307,21 @@ stories:
     - first_name: jacob
   - action: utter_submit
   - action: validate_name_form
-  - slot_was_set:
-    - requested_slot: null
   - action: utter_slots_values
+  - action: utter_ask_signup
+
+- story: interactive_story_1
+  steps:
+  - intent: request_names
+  - action: check_name_filled
+  - intent: affirm
+  - action: utter_ask_name
+  - intent: inform
+    entities:
+    - first_name: jbob
+  - slot_was_set:
+    - first_name: jbob
+  - action: utter_submit
+  - action: validate_name_form
+  - action: utter_slots_values
+  - action: utter_ask_signup
