@@ -325,3 +325,81 @@ stories:
   - action: validate_name_form
   - action: utter_slots_values
   - action: utter_ask_signup
+#- story: interactive_story_1
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - action: utter_ask_permission
+#  - intent: affirm
+#  - action: utter_ask_name
+#  - intent: inform
+#    entities:
+#    - first_name: cooolj
+#  - slot_was_set:
+#    - first_name: cooolj
+#  - action: utter_submit
+#  - action: validate_name_form
+#  - action: utter_slots_values
+#  - action: utter_ask_signup
+#  - intent: deny
+#  - action: utter_inform_name_given
+#  - intent: inform
+#    entities:
+#    - first_name: jacob
+#  - slot_was_set:
+#    - first_name: jacob
+#  - action: change_name_filled
+#  - intent: affirm
+#  - action: utter_ask_name
+#  - intent: inform
+#    entities:
+#    - first_name: jacob
+#  - slot_was_set:
+#    - first_name: jacob
+#  - action: utter_submit
+#  - action: validate_name_form
+#  - action: utter_slots_values
+#
+#- story: interactive_story_1
+#  steps:
+#  - intent: request_names
+#  - action: check_name_filled
+#  - intent: affirm
+#  - action: utter_ask_name
+#  - intent: inform
+#    entities:
+#    - first_name: deno
+#  - slot_was_set:
+#    - first_name: deno
+#  - action: utter_submit
+#  - action: validate_name_form
+#  - action: utter_slots_values
+#  - action: utter_ask_signup
+#  - intent: affirm
+#  - action: utter_inform_affirm
+#  - action: utter_help
+#  - intent: inform
+#    entities:
+#    - first_name: denis
+#  - slot_was_set:
+#    - first_name: denis
+#  - action: change_name_filled
+#  - intent: deny
+#  - action: utter_submit_no_name
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_permission
+  - intent: affirm
+  - action: utter_ask_name
+  - intent: inform
+    entities:
+    - first_name: coolboy
+  - slot_was_set:
+    - first_name: coolboy
+  - action: utter_submit
+  - action: validate_name_form
+  - action: utter_slots_values
+  - action: utter_ask_signup

@@ -74,4 +74,9 @@ responses:
   - text: What do you call a pirate droid? - Arrrr-2-D2
   - text: Why did the robot cross the road? - Because he was programmed to.
   - text: Not really a joke...but if you say Space Ghettos in an American accent, it sounds exactly the same as Spice Girls in a Scottish accent (vice versa). Try it 😂
-
+  utter_chitchat/compliment:
+  - text: Why thank you 😌
+  - text: Thanks!
+  - text: Ohh stop it...😅
+  - text: Thank you
+  - text: I know 😁

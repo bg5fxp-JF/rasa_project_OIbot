@@ -373,6 +373,9 @@ nlu:
     - what's your name
     - what is you name
     - what is you name and where are you from
+    - whats you're identetiy
+    - What do you identify as
+
 - intent: chitchat/how_are_you
   examples: |
     - how are you?
@@ -547,11 +550,63 @@ nlu:
     - i hate you
     - i hate you so much
     - you stink
+    - you're not cool
+    - you aint that cool
+    - Google Assistant is better
+    - Siri is better than you
+    - Cortana is so much cooler
+    - I like Alexa more than you
+    - Why can't you better, you are trash
+    - Your trash
+    - Your not that guy pal
+    - You aint it
+    - You're not that guy
+    - Don't like you at all
+    - Don't like your vibes
+    - You give bad vibes
+    - ughh you dont understanding anything
+    - You are useless
+    - youre so dumb
+    - wow what a stupid bot
+    - silly bot
+    - Such a useless bot
 - intent: chitchat/telljoke
   examples: |
     - can you tell me a joke?
+    - tell me another one
+    - let me hear another
+    - i wunna hear another
+    - i want to hear another one
     - tell me a joke!
     - tell me something funny
     - i want a joke
     - joke
     - funny joke
+- intent: chitchat/compliment
+  examples: |
+    - your're so funny
+    - haha you are really funny
+    - wow you made me laugh
+    - wow you are funny
+    - you are actually funny
+    - hahahah looool
+    - you cool
+    - so cool
+    - too cool
+    - too funny
+    - you are actually a funny bot
+    - what a cool bot
+    - such nice bot
+    - wow you're amazing
+    - 🤣🤣🤣🤣🤣
+    - 🤣
+    - 😂😂😂
+    - 😂🤣
+    - really funny😂
+    - lmaoooo
+    - lmao
+    - loooool
+    - lool you are funnYY
+    - LOL so funny
+    - LoL 😂
+    - you ae cool

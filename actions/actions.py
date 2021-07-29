@@ -62,6 +62,27 @@ class Name(Action):
             return []
 
 
+class NameCheck(Action):
+
+    def name(self) -> Text:
+        return "change_name_filled"
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        """Validate `first_name` value."""
+
+        first_name = tracker.get_slot("first_name")
+        # If the name is super short, it might be wrong.
+        # print(f"First name given =" + first_name + "length = {len(slot_value)}")
+        if first_name is not None:
+            dispatcher.utter_message(response="utter_name_already_given")
+            return []
+
+
 class ValidateEmail(FormValidationAction):
     def name(self) -> Text:
         return "validate_email_form"

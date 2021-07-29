@@ -4,17 +4,17 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - greet
-- request_names
 - inform
 - affirm
 - out_of_scope:
     is_retrieval_intent: true
 - chitchat:
     is_retrieval_intent: true
+- request_names
+- deny
 - give_time
 - subscribe_to_updates
 - thankyou
-- deny
 - read_write_learner
 - ask_learning_type
 - kinesthetic
@@ -253,15 +253,20 @@ responses:
   - text: You haven't given me your name yet.
 actions:
 - action_show_time
+- change_name_filled
 - check_name_filled
 - utter_ask_name
 - utter_ask_permission
 - utter_ask_signup
 - utter_chitchat
 - utter_greet
+- utter_help
+- utter_inform_affirm
+- utter_inform_name_given
 - utter_out_of_scope
 - utter_slots_values
 - utter_submit
+- utter_submit_no_name
 - validate_email_form
 - validate_name_form
 forms:
