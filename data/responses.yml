@@ -2,8 +2,49 @@ version: "2.0"
 intents:
   - out_of_scope
   - chitchat
-
+  - info
 responses:
+  utter_info/irrelevant:
+  - text: Ohh.. can't say thats my strong suit. Im not that kind of coach😂 How about some advice about studying?
+  utter_info/podcast_suggestion:
+  - text: This is the best audio series I know 😎 https://www.listennotes.com/podcasts/otermans-institute-audio-lessons-otermans-PN64gYwoDVf/
+  utter_info/general:
+  - text: Sure what sort of advice?
+  utter_info/pick_subject:
+  - text: The first thing you need to ask yourself is "Do I enjoy a subject?" 🤔
+  utter_info/affirm:
+  - text: Perfect! What's the subject that you want to know more about?
+  utter_info/deny:
+  - text: I would suggest looking for something new if thats the case. However maybe give it another try you might start to enjoy it.
+  utter_info/idk:
+  - text: I see...maybe I can make you sure with some of my knowledge 🧠 What's the subject that you want to know more about?
+  utter_info/why_maths:
+  - text: |-
+      Well I've always heard that Mathematics 🧮 provides an effective way of building mental discipline and encourages logical reasoning and mental rigor.
+      In addition, mathematical knowledge plays a crucial role in understanding the contents of other school subjects such as science, social studies, and even music and art.
+  utter_info/why_art:
+  - text: |-
+      From what I understand Arts subjects encourage self-expression and creativity 👨‍🎨 and can build confidence as well as a sense of individual identity.
+      Studying arts subjects also help to develop critical thinking and the ability to interpret the world around us.
+  utter_info/why_business:
+  - text: |-
+      I don't think you can go wrong with studying business...it will give you a good understanding of basic economic principles, how markets are affected by world events, and how to assess a firms' financial health.
+  utter_info/why_compsci:
+  - text: |-
+      Firstly if you want to know how to create a masterpeiece such as my self 😁🤖 Computer Science is the way.
+      Studying Computer Science would also help you gain a wide range of skills when studying computer science.
+      Technical skills such as programming, and non-technical skills such as problem-solving and leadership, are amongst some of them.
+  utter_info/why_engineering:
+  - text: |-
+      Good question... Firstly, Engineering is important. It is also challenging and exciting.
+      Engineers use models provided by science combined with innovative thinking to solve problems and create new designs that benefit humanity, such as fuel-efficient aircrafts.✈️
+  utter_info/why_health:
+  - text: |-
+      Careers in social care are concerned with helping vulnerable people in the community and providing them with support so that they can benefit from a much more improved way of life. If I was human i think i'd choose a career in this field 🤔
+  utter_info/why_social_science:
+  - text: |-
+      Social Science can help us to understand why this is, and develop policies, interventions and actions that can work with people to change to get better outcomes for individuals and for society. Indeed, if there is a 'point' to the social sciences, that is it. It is about improving our social and economic well-being.
+      Actually maybe if I was human i think i'd choose a career in this field 🤔
   utter_out_of_scope/non_english:
   - text: I only understand English, I'm sorry.
   - text: At this moment I only understand English ☹️

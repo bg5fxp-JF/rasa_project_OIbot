@@ -1,3 +1,4 @@
+import pathlib
 import re
 import datetime as dt
 from abc import ABC
@@ -7,7 +8,7 @@ from rasa_sdk.events import EventType
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
-
+names = pathlib.Path("data/names.txt").read_text().split("\n")
 # import spacy
 #
 # nlp = spacy.load("en_core_web_sm")
@@ -29,10 +30,9 @@ class ValidateNameForm(FormValidationAction):
         first_name = tracker.get_slot("first_name")
         # If the name is super short, it might be wrong.
         # print(f"First name given =" + first_name + "length = {len(slot_value)}")
-        if len(first_name) <= 2:
-            dispatcher.utter_message(text="That's a very short name. I'm assuming you mis-spelled.")
-            dispatcher.utter_message(text="Enter your name again please")
-            return [{"first_name": None}]
+        if len(first_name) <= 2 or str(first_name).lower() not in names:
+            dispatcher.utter_message(text="That's a very interesting name lol but ok...")
+            return [{"first_name": first_name}]
         else:
             return [{"first_name": first_name}]
 
