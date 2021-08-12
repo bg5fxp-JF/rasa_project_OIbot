@@ -65,3 +65,7 @@ rules:
   - action: utter_chitchat
 
 
+- rule: interactive_story_2
+  steps:
+  - intent: info
+  - action: utter_info

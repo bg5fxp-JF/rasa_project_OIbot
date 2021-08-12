@@ -582,7 +582,4 @@ nlu:
     - what time it is
     - what's the time
     - whats the time now
-- intent: info
-  examples: |
-    - i need some advice
-    - can you tell me about maths
+

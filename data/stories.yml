@@ -298,7 +298,4 @@ stories:
   - action: utter_ask_signup
 
 
-- story: interactive_story_2
-  steps:
-  - intent: info
-  - action: utter_info
+
